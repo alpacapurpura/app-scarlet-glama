@@ -85,4 +85,4 @@ frontend/
 
 ## Licencia
 
-Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles. 
+Este proyecto le pertenece a Christian Revilla Meléndez

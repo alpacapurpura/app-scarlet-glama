@@ -54,4 +54,4 @@ El proyecto está configurado para desplegarse en Google Cloud Platform usando C
 
 ## Licencia
 
-MIT 
+Este proyecto le pertenece a Christian Revilla Meléndez 

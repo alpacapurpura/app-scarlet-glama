@@ -1,16 +1,31 @@
 #!/bin/bash
 
-# Detener y eliminar contenedores existentes
-docker-compose down
+# Verificar que Docker está instalado
+if ! command -v docker &> /dev/null; then
+    echo "Error: Docker no está instalado"
+    exit 1
+fi
 
-# Reconstruir las imágenes
-docker-compose build
+# Verificar que docker compose está disponible
+if ! docker compose version &> /dev/null; then
+    echo "Error: docker compose no está disponible"
+    exit 1
+fi
 
-# Levantar los servicios
-docker-compose up -d
+echo "Deteniendo contenedores existentes..."
+docker compose down
 
-# Aplicar migraciones de la base de datos
-docker exec lc-lg-backend-1 alembic upgrade head
+echo "Reconstruyendo imágenes..."
+docker compose build
 
-# Mostrar logs
-docker-compose logs -f 
+echo "Levantando servicios..."
+docker compose up -d
+
+echo "Esperando a que los servicios estén listos..."
+sleep 10
+
+echo "Aplicando migraciones de la base de datos..."
+docker compose exec backend alembic upgrade head
+
+echo "Mostrando logs..."
+docker compose logs -f 
