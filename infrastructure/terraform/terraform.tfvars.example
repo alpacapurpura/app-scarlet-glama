@@ -1,0 +1,6 @@
+project_id      = "your-project-id"
+region          = "us-central1"
+zone            = "us-central1-a"
+instance_name   = "aaas-instance"
+ssh_user        = "ubuntu"
+ssh_pub_key_path = "~/.ssh/id_rsa.pub" 
